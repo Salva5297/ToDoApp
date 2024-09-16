@@ -31,3 +31,10 @@ http://localhost:5173/
 ```
 
 # Fifth Step: Create, Update and Delete your Duties 😊
+
+
+# If you want to run the tests, you can run the following command:
+```bash
+cd backend
+npm test
+```
