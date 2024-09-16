@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Duty } from '../../backend/src/types/Duty';
+import { Duty } from './types/Duty';
 import { getDuties, createDuty, updateDuty, deleteDuty } from './controllers/controller';
 
 
 const App = () => {
-  const [duties, setDuties] = useState<Duty[]>([]);
-  const [newDutyName, setNewDutyName] = useState('');
-  const [editingDuty, setEditingDuty] = useState<Duty | null>(null); // Estado para el duty que está siendo editado
-  const [editName, setEditName] = useState(''); // Estado para el nuevo nombre del duty en edición
+  const [duties, setDuties] = useState<Duty[]>([]); // Status for duties
+  const [newDutyName, setNewDutyName] = useState(''); // Status for the new duty to be added
+  const [editingDuty, setEditingDuty] = useState<Duty | null>(null); // Status for the duty being edited
+  const [editName, setEditName] = useState(''); // Status for the new duty name in edition
 
   useEffect(() => {
     NewGetDuties();
@@ -60,14 +60,14 @@ const App = () => {
 
   const handleEdit = (duty: Duty) => {
     setEditingDuty(duty);
-    setEditName(duty.name); // Rellenar el input con el nombre actual del duty
+    setEditName(duty.name); // Fill the input with the current duty name
   };
 
   const handleSaveEdit = async () => {
     if (editingDuty) {
       const updatedDuty = { ...editingDuty, name: editName };
       await NewUpdateDuty(updatedDuty);
-      setEditingDuty(null); // Limpiar el estado de edición
+      setEditingDuty(null); // Clear the editing status
       setEditName('');
     }
   };
@@ -88,7 +88,7 @@ const App = () => {
         {duties.map((duty) => (
           <li key={duty.id}>
             {editingDuty && editingDuty.id === duty.id ? (
-              // Mostrar campo de edición si el duty está siendo editado
+              // Show edit field if duty is being edited
               <>
                 <input
                   type="text"
@@ -100,7 +100,7 @@ const App = () => {
                 <button onClick={() => setEditingDuty(null)}>Cancel</button>
               </>
             ) : (
-              // Mostrar el duty normal si no está en edición
+              // Show normal duty if not in edit
               <>
                 <p>
                   {duty.name} &nbsp;

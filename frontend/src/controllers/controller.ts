@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Duty } from '../../../backend/src/types/Duty';
+import { Duty } from '../types/Duty';
 
 const API_URL = 'http://localhost:8080';
 
@@ -8,8 +8,8 @@ export const getDuties = async (): Promise<Duty[]> => {
   return response.data;
 };
 
-export const createDuty = async (duty: Partial<Duty>): Promise<Duty> => {
-  const response = await axios.post(`${API_URL}`, duty);
+export const createDuty = async (name: Partial<Duty>): Promise<Duty> => {
+  const response = await axios.post(`${API_URL}`, name);
   return response.data;
 };
 
