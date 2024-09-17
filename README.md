@@ -43,28 +43,33 @@ npm test
 
 # Get all duties
 
-![alt text](./images/get_duties.png)
+![alt text](./images/get_duties.png#center)
 
 # Create a duty
 
-![alt text](./images/create_duty.png)
+![alt text](./images/create_duty.png#center)
 
 # Add created duty
 
-![alt text](./images/add_created_duty.png)
+![alt text](./images/add_created_duty.png#center)
 
 # Update a duty
 
-![alt text](./images/edit_duty.png)
+![alt text](./images/edit_duty.png#center)
 
 # Save updated duty
 
-![alt text](./images/save_edited_duty.png)
+![alt text](./images/save_edited_duty.png#center)
 
 # Delete a duty
 
-![alt text](./images/delete_duty.png)
+![alt text](./images/delete_duty.png#center)
 
 # After deleting duty
 
-![alt text](./images/duty_deleted.png)
+![alt text](./images/duty_deleted.png#center)
+
+img[src*='#center'] {
+    display: block;
+    margin: auto;
+}
