@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Pool } from 'pg';
-import { Duty } from '../types/Duty';
+import { Duty } from '../models/Duty';
 
 export class Controller {
   private pool: Pool;

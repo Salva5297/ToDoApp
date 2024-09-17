@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Duty } from './types/Duty';
-import { getDuties, createDuty, updateDuty, deleteDuty } from './controllers/controller';
+import { Duty } from './models/Duty';
+import { getDuties, createDuty, updateDuty, deleteDuty } from './services/service';
 
 
 const App = () => {

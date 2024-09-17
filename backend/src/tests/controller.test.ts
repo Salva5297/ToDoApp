@@ -5,14 +5,14 @@ describe('ToDo APP', () => {
   let id = "1";
   
   // Test for getting all duties
-  it('should get all duties', async () => {
+  it('Get all duties', async () => {
     const res = await request(app).get('/');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toBeInstanceOf(Array);
   });
 
   // Test for creating a new duty
-  it('should create a new duty', async () => {
+  it('Create new duty', async () => {
     const newDuty = { name: 'Test Duty' };
     const res = await request(app)
       .post('/')
@@ -28,23 +28,43 @@ describe('ToDo APP', () => {
   });
 
   // Test for updating a duty
-  it('should update a duty', async () => {
+  it('Update duty', async () => {
     const updatedDuty = { name: 'Updated Test Duty' };
     const res = await request(app)
-      .put(`/${id}`)
+      .put("/" + id)
       .send(updatedDuty);
     
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('name', 'Updated Test Duty');
   });
 
+  // Test for updating a duty that not exist
+  it('Update duty', async () => {
+    const updatedDuty = { name: 'Updated Test Duty' };
+    const res = await request(app)
+      .put("/9999999")
+      .send(updatedDuty);
+    
+    expect(res.statusCode).toEqual(404);
+  });
+
 
   // Test for deleting a duty
-  it('should delete a duty', async () => {
+  it('Delete duty', async () => {
     const res = await request(app)
-      .delete(`/${id}`)
+      .delete("/" + id)
       .send();
     
     expect(res.statusCode).toEqual(200);
   });
+
+  // Test for deleting a duty that not exist
+  it('Delete duty', async () => {
+    const res = await request(app)
+      .delete("/999999")
+      .send();
+    
+    expect(res.statusCode).toEqual(404);
+  });
+
 });

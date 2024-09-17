@@ -38,3 +38,33 @@ http://localhost:5173/
 cd backend
 npm test
 ```
+
+# FRONTEND USAGE
+
+# Get all duties
+
+![alt text](./images/get_duties.png)
+
+# Create a duty
+
+![alt text](./images/create_duty.png)
+
+# Add created duty
+
+![alt text](./images/add_created_duty.png)
+
+# Update a duty
+
+![alt text](./images/edit_duty.png)
+
+# Save updated duty
+
+![alt text](./images/save_edited_duty.png)
+
+# Delete a duty
+
+![alt text](./images/delete_duty.png)
+
+# After deleting duty
+
+![alt text](./images/duty_deleted.png)
